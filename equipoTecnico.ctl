@@ -1,0 +1,14 @@
+OPTIONS (SKIP=1)
+LOAD DATA
+CHARACTERSET UTF8
+INFILE 'EquipoTecnico.csv'
+APPEND
+INTO TABLE EQUIPO_TECNICO
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"'
+TRAILING NULLCOLS
+(
+  nombre   "TRIM(REPLACE(REPLACE(:nombre,  CHR(10), ''), CHR(13), ''))",
+  titulo   "TRIM(REPLACE(REPLACE(:titulo,  CHR(10), ''), CHR(13), ''))",
+  anyoEstreno,
+  rol      "TRIM(REPLACE(REPLACE(:rol,     CHR(10), ''), CHR(13), ''))"
+)

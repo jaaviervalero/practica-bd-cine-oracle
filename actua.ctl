@@ -1,0 +1,14 @@
+OPTIONS (SKIP=1)
+LOAD DATA
+CHARACTERSET UTF8
+INFILE 'Actua.csv'
+APPEND
+INTO TABLE ACTUA
+FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"'
+TRAILING NULLCOLS
+(
+    nombre,
+    titulo,
+    anyoEstreno,
+    personaje
+)
